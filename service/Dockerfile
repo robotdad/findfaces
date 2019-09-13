@@ -44,5 +44,5 @@ WORKDIR /usr/local/faces
 
 CMD ./findfaces
 
-EXPOSE 8080
+EXPOSE 4000
 
