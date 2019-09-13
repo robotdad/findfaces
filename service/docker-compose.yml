@@ -1,0 +1,30 @@
+version: '3'  
+services:
+  findfaces-webapp:
+    image: findfaces/webapp
+    container_name: findfaces-webapp
+    restart: unless-stopped
+    networks:
+      - app-network
+  findfaces-svc:
+    image: findfaces/run
+    container_name: findfaces-svc
+    restart: unless-stopped
+    networks:
+      - app-network
+  findfaces-ws:
+    image: nginx:mainline-alpine
+    container_name: findfaces-ws
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx-conf:/etc/nginx/conf.d
+    depends_on:
+      - findfaces-webapp
+      - findfaces-svc
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
