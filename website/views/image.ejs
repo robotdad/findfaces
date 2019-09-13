@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Find faces <%= image %> </title>
+  </head>
+  <body>
+    <p>Results from findfaces app</p>
+    <p>
+      <table>
+        <tr>
+          <td>Original</td><td>Found faces</td>
+        </tr>
+        <tr>
+          <td><img src="/images/<%= image %>"></td><td><img src="http://localhost:8080/files/faces<%= image %>"></td>
+        </tr>
+      </table>
+    </p>
+  </body>
+</html>
