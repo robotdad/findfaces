@@ -22,7 +22,7 @@ auto create_request_handler(fs::path p)
 	auto router = std::make_unique< router_t >();
 
 	router->http_get(
-		"/",
+		"/files",
 		[](auto req, auto) {
 		init_resp(req->create_response())
 			.append_header(restinio::http_field::content_type, "text/html; charset=utf-8")
@@ -127,7 +127,7 @@ int main()
 
 		restinio::run(
 			restinio::on_this_thread<traits_t>()
-			.port(8080)
+			.port(4000)
 			.address("0.0.0.0")
 			.request_handler(create_request_handler(path)));
 	}
